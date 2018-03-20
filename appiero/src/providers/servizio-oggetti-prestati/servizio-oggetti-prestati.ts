@@ -14,7 +14,7 @@ export class ServizioOggettiPrestatiProvider {
   nomiOggetti = ["Album", "Telefono", "Computer"];
   nomiPersone = ["Marco", "Giovanni", "Paolo"];
   quandoPrestito = ["19 Marzo", "21 Settembre", "15 Aprile"];
-  fotografie = ["", "", ""];
+  fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
   statoPrestito = [true, false, false];
 
   constructor(public http: HttpClient) {
