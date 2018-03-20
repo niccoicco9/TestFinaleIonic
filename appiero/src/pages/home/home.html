@@ -4,7 +4,7 @@
       Home
     </ion-title>
 
-    <ion-icon name="ios-add-circle-outline"></ion-icon>
+    <ion-icon name="ios-add-circle-outline" end></ion-icon>
   </ion-navbar>
 </ion-header>
 
@@ -21,7 +21,7 @@
         <div class="divTitolo">{{itemOggetto.nome}}</div>
         <div class="divSottotitolo">prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando}}</div>
       </div>
-
+      <!-- C'è anche item-sliding se c'è tempo che puoi provare a fare --> 
       <div item-end class="containerBottoni">
         <button ion-button color="danger" *ngIf="itemOggetto.ritornato">
           <ion-icon name="ios-remove"></ion-icon>
