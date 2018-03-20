@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ServizioOggettiPrestatiProvider } from '../../providers/servizio-oggetti-prestati/servizio-oggetti-prestati';
 import { OggettoPrestato } from '../../models/oggettoPrestato';
+import { DettaglioPrestitoPage } from '../dettaglio-prestito/dettaglio-prestito';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,12 @@ export class HomePage {
 
   ionViewDidLoad(){
     this.serviceObjectOnLoan.getOggettiPrestati().subscribe(oggetti => this.listaOggettiPrestati = oggetti);
-    
+  }
+
+  vaiDettaglioPrestito(oggetto: OggettoPrestato){
+    this.navCtrl.push(DettaglioPrestitoPage,{
+      prestito: oggetto
+    });
   }
 
 }

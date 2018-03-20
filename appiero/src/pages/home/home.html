@@ -4,14 +4,15 @@
       Home
     </ion-title>
 
-    <ion-icon name="ios-add-circle-outline" ></ion-icon>
+    <ion-icon name="ios-add-circle-outline"></ion-icon>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-list-header>Oggetti Prestati</ion-list-header>
-    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">
+    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati" (click)="vaiDettaglioPrestito(itemOggetto)">
+
       <ion-avatar item-start>
         <img src="{{itemOggetto.fotografia}}">
       </ion-avatar>
@@ -22,8 +23,11 @@
       </div>
 
       <div item-end class="containerBottoni">
-        <button ion-button color="danger">
+        <button ion-button color="danger" *ngIf="itemOggetto.ritornato">
           <ion-icon name="ios-remove"></ion-icon>
+        </button>
+        <button ion-button color="secondary" *ngIf="!itemOggetto.ritornato">
+          <ion-icon name="ios-add"></ion-icon>
         </button>
         <ion-icon name="ios-close-circle" color="dark"></ion-icon>
       </div>
