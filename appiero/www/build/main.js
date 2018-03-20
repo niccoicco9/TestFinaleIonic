@@ -1,14 +1,15 @@
 webpackJsonp([2],{
 
-/***/ 100:
+/***/ 101:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AggiungiPrestitoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_oggettoPrestato__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_oggettoPrestato__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,17 +23,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the AggiungiPrestitoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 var AggiungiPrestitoPage = /** @class */ (function () {
-    function AggiungiPrestitoPage(navCtrl, navParams, servizioOggettiPrestati) {
+    function AggiungiPrestitoPage(navCtrl, navParams, servizioOggettiPrestati, camera) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.servizioOggettiPrestati = servizioOggettiPrestati;
+        this.camera = camera;
         this.oggetto = new __WEBPACK_IMPORTED_MODULE_2__models_oggettoPrestato__["a" /* OggettoPrestato */]();
     }
     AggiungiPrestitoPage.prototype.ionViewDidLoad = function () {
@@ -41,11 +38,29 @@ var AggiungiPrestitoPage = /** @class */ (function () {
         this.servizioOggettiPrestati.aggiungiPrestito(this.oggetto);
         this.navCtrl.pop();
     };
+    AggiungiPrestitoPage.prototype.nuovaImmagine = function () {
+        var options = {
+            quality: 100,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64:
+            var base64Image = "data:image/jpeg;base64," + imageData;
+        }, function (err) {
+            // Handle error
+        });
+    };
     AggiungiPrestitoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-aggiungi-prestito',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/aggiungi-prestito/aggiungi-prestito.html"*/'\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Aggiungi</ion-title>\n      </ion-navbar>\n    \n    </ion-header>\n    \n    \n    <ion-content padding>\n      <ion-list>\n          <ion-list-header>Aggiungi oggetto</ion-list-header>\n        <ion-item>\n          <ion-label floating>Cosa?</ion-label>\n          <ion-input type="text" [(ngModel)]="oggetto.nome"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>A chi?</ion-label>\n          <ion-input type="text" [(ngModel)]="oggetto.aChi"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>Quando?</ion-label>\n          <ion-datetime displayFormat="D/M/YYYY"></ion-datetime>\n        </ion-item>\n    \n        <ion-item class="togglePrestato">\n          <ion-label>Prestato</ion-label>\n          <ion-toggle [(ngModel)]="oggetto.ritornato"></ion-toggle>\n        </ion-item>\n      </ion-list>\n    \n      <div class="containerImmagine">\n        <ion-icon name="ios-add-circle" large></ion-icon>\n      </div>\n    \n      <div>\n        <button ion-button full (click)="salvaNuovoPrestito()">Salva</button>\n      </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/aggiungi-prestito/aggiungi-prestito.html"*/,
+            selector: "page-aggiungi-prestito",template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/aggiungi-prestito/aggiungi-prestito.html"*/'\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Aggiungi</ion-title>\n      </ion-navbar>\n    \n    </ion-header>\n    \n    \n    <ion-content padding>\n      <ion-list>\n          <ion-list-header>Aggiungi oggetto</ion-list-header>\n        <ion-item>\n          <ion-label floating>Cosa?</ion-label>\n          <ion-input type="text" [(ngModel)]="oggetto.nome"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>A chi?</ion-label>\n          <ion-input type="text" [(ngModel)]="oggetto.aChi"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>Quando?</ion-label>\n          <ion-datetime displayFormat="D/M/YYYY"></ion-datetime>\n        </ion-item>\n    \n        <ion-item class="togglePrestato">\n          <ion-label>Prestato</ion-label>\n          <ion-toggle [(ngModel)]="oggetto.ritornato"></ion-toggle>\n        </ion-item>\n      </ion-list>\n    \n      <div class="containerImmagine">\n        <ion-icon name="ios-add-circle" large (click)="nuovaImmagine()"></ion-icon>\n      </div>\n    \n      <div>\n        <button ion-button full (click)="salvaNuovoPrestito()">Salva</button>\n      </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/aggiungi-prestito/aggiungi-prestito.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */]])
     ], AggiungiPrestitoPage);
     return AggiungiPrestitoPage;
 }());
@@ -54,7 +69,7 @@ var AggiungiPrestitoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 101:
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -108,7 +123,7 @@ var DettaglioPrestitoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 113:
+/***/ 114:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -121,20 +136,20 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 113;
+webpackEmptyAsyncContext.id = 114;
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/aggiungi-prestito/aggiungi-prestito.module": [
-		279,
+		280,
 		1
 	],
 	"../pages/dettaglio-prestito/dettaglio-prestito.module": [
-		280,
+		281,
 		0
 	]
 };
@@ -149,12 +164,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 155;
+webpackAsyncContext.id = 156;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 201:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -162,8 +177,8 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dettaglio_prestito_dettaglio_prestito__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aggiungi_prestito_aggiungi_prestito__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dettaglio_prestito_dettaglio_prestito__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aggiungi_prestito_aggiungi_prestito__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -215,13 +230,13 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 202:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(224);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -229,7 +244,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 223:
+/***/ 224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -237,20 +252,22 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_dettaglio_prestito_dettaglio_prestito__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_aggiungi_prestito_aggiungi_prestito__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_dettaglio_prestito_dettaglio_prestito__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_aggiungi_prestito_aggiungi_prestito__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_camera__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -294,7 +311,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_7__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */]
+                __WEBPACK_IMPORTED_MODULE_7__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */],
+                __WEBPACK_IMPORTED_MODULE_11__ionic_native_camera__["a" /* Camera */]
             ]
         })
     ], AppModule);
@@ -305,7 +323,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 248:
+/***/ 249:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -320,16 +338,16 @@ var OggettoPrestato = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 278:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(202);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -371,9 +389,9 @@ var MyApp = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServizioOggettiPrestatiProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -449,5 +467,5 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
 
 /***/ })
 
-},[202]);
+},[203]);
 //# sourceMappingURL=main.js.map
