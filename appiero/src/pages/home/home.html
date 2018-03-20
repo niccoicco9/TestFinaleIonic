@@ -4,19 +4,28 @@
       Home
     </ion-title>
 
-    <button>
-      <ion-icon name="ios-add-circle-outline"></ion-icon>
-    </button>
+    <ion-icon name="ios-add-circle-outline" ></ion-icon>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-list>
     <ion-list-header>Oggetti Prestati</ion-list-header>
     <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">
-      <div>
-        <div>{{itemOggetto.nome}}</div>
-        <div>prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando}}</div>
+      <ion-avatar item-start>
+        <img src="{{itemOggetto.fotografia}}">
+      </ion-avatar>
+
+      <div class="divTesto">
+        <div class="divTitolo">{{itemOggetto.nome}}</div>
+        <div class="divSottotitolo">prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando}}</div>
+      </div>
+
+      <div item-end class="containerBottoni">
+        <button ion-button color="danger">
+          <ion-icon name="ios-remove"></ion-icon>
+        </button>
+        <ion-icon name="ios-close-circle" color="dark"></ion-icon>
       </div>
     </ion-item>
   </ion-list>

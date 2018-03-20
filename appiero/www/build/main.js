@@ -65,7 +65,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <button>\n      <ion-icon name="ios-add-circle-outline"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-list-header>Oggetti Prestati</ion-list-header>\n    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">\n      <div>\n        <div>{{itemOggetto.nome}}</div>\n        <div>prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando}}</div>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-icon name="ios-add-circle-outline" ></ion-icon>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Oggetti Prestati</ion-list-header>\n    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">\n      <ion-avatar item-start>\n        <img src="{{itemOggetto.fotografia}}">\n      </ion-avatar>\n\n      <div class="divTesto">\n        <div class="divTitolo">{{itemOggetto.nome}}</div>\n        <div class="divSottotitolo">prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando}}</div>\n      </div>\n\n      <div item-end class="containerBottoni">\n        <button ion-button color="danger">\n          <ion-icon name="ios-remove"></ion-icon>\n        </button>\n        <ion-icon name="ios-close-circle" color="dark"></ion-icon>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */]])
     ], HomePage);
@@ -108,7 +108,7 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
         this.nomiOggetti = ["Album", "Telefono", "Computer"];
         this.nomiPersone = ["Marco", "Giovanni", "Paolo"];
         this.quandoPrestito = ["19 Marzo", "21 Settembre", "15 Aprile"];
-        this.fotografie = ["", "", ""];
+        this.fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
         this.statoPrestito = [true, false, false];
         for (var i = 0; i < 3; i++) {
             this.oggettiPrestati.push({
