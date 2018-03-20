@@ -13,7 +13,7 @@ export class ServizioOggettiPrestatiProvider {
   private oggettiPrestati: OggettoPrestato[] = [];
   private nomiOggetti = ["Album", "Telefono", "Computer"];
   private nomiPersone = ["Marco", "Giovanni", "Paolo"];
-  private quandoPrestito = ["19 Marzo", "21 Settembre", "15 Aprile"];
+  private quandoPrestito = ["2018-03-19", "2017-02-21", "2017-04-15"];
   private fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
   private statoPrestito = [true, false, false];
 
@@ -40,7 +40,25 @@ export class ServizioOggettiPrestatiProvider {
       i++;
     }
     if(i <= this.oggettiPrestati.length){
-      this.oggettiPrestati.splice(idOggetto,1);
+      this.oggettiPrestati.splice(i,1);
     }
+  }
+
+
+  aggiungiPrestito(oggetto: OggettoPrestato){
+    this.oggettiPrestati.push(oggetto);
+  }
+
+  modificaPrestito(idOggetto: number, modificheOggetto: OggettoPrestato){
+    let i = 0;
+    while((this.oggettiPrestati[i].id !== idOggetto) && (i < this.oggettiPrestati.length)){
+      i++;
+    }
+    this.oggettiPrestati[i].id = modificheOggetto.id;
+    this.oggettiPrestati[i].nome = modificheOggetto.nome;
+    this.oggettiPrestati[i].quando = modificheOggetto.quando;
+    this.oggettiPrestati[i].aChi = modificheOggetto.aChi;
+    this.oggettiPrestati[i].fotografia = modificheOggetto.fotografia;
+    this.oggettiPrestati[i].ritornato = modificheOggetto.ritornato;
   }
 }

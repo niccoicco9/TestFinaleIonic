@@ -9,12 +9,14 @@ import { HomePage } from '../pages/home/home';
 import { ServizioOggettiPrestatiProvider } from '../providers/servizio-oggetti-prestati/servizio-oggetti-prestati';
 import { HttpClientModule } from '@angular/common/http';
 import { DettaglioPrestitoPage } from '../pages/dettaglio-prestito/dettaglio-prestito';
+import { AggiungiPrestitoPage } from '../pages/aggiungi-prestito/aggiungi-prestito';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    DettaglioPrestitoPage
+    DettaglioPrestitoPage,
+    AggiungiPrestitoPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { DettaglioPrestitoPage } from '../pages/dettaglio-prestito/dettaglio-pre
   entryComponents: [
     MyApp,
     HomePage,
-    DettaglioPrestitoPage
+    DettaglioPrestitoPage,
+    AggiungiPrestitoPage
   ],
   providers: [
     StatusBar,

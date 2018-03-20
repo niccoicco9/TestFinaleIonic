@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { ServizioOggettiPrestatiProvider } from '../../providers/servizio-oggetti-prestati/servizio-oggetti-prestati';
 import { OggettoPrestato } from '../../models/oggettoPrestato';
 import { DettaglioPrestitoPage } from '../dettaglio-prestito/dettaglio-prestito';
+import { AggiungiPrestitoPage } from '../aggiungi-prestito/aggiungi-prestito';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'page-home',
@@ -29,6 +31,11 @@ export class HomePage {
   }
 
   eliminaItem(oggetto: OggettoPrestato){
+    alert(oggetto.id);
     this.serviceObjectOnLoan.deleteOggettoPrestato(oggetto.id);
+  }
+
+  aggiungiPrestito() {
+    this.navCtrl.push(AggiungiPrestitoPage, {});
   }
 }
