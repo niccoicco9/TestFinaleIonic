@@ -28,4 +28,7 @@ export class HomePage {
     oggetto.ritornato = !oggetto.ritornato;
   }
 
+  eliminaItem(oggetto: OggettoPrestato){
+    this.serviceObjectOnLoan.deleteOggettoPrestato(oggetto.id);
+  }
 }

@@ -10,12 +10,12 @@ import { of } from "rxjs/observable/of";
 */
 @Injectable()
 export class ServizioOggettiPrestatiProvider {
-  oggettiPrestati: OggettoPrestato[] = [];
-  nomiOggetti = ["Album", "Telefono", "Computer"];
-  nomiPersone = ["Marco", "Giovanni", "Paolo"];
-  quandoPrestito = ["19 Marzo", "21 Settembre", "15 Aprile"];
-  fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
-  statoPrestito = [true, false, false];
+  private oggettiPrestati: OggettoPrestato[] = [];
+  private nomiOggetti = ["Album", "Telefono", "Computer"];
+  private nomiPersone = ["Marco", "Giovanni", "Paolo"];
+  private quandoPrestito = ["19 Marzo", "21 Settembre", "15 Aprile"];
+  private fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
+  private statoPrestito = [true, false, false];
 
   constructor(public http: HttpClient) {
     for (let i = 0; i < 3; i++) {
@@ -34,5 +34,13 @@ export class ServizioOggettiPrestatiProvider {
     return of(this.oggettiPrestati);
   }
 
-  
+  deleteOggettoPrestato(idOggetto: number) {
+    let i = 0;
+    while((this.oggettiPrestati[i].id !== idOggetto) && (i < this.oggettiPrestati.length)){
+      i++;
+    }
+    if(i <= this.oggettiPrestati.length){
+      this.oggettiPrestati.splice(idOggetto,1);
+    }
+  }
 }
