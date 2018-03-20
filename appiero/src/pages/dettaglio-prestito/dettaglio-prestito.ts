@@ -19,7 +19,6 @@ export class DettaglioPrestitoPage {
   oggetto: OggettoPrestato;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.oggetto = this.navParams.get('prestito');
-    console.log(this.oggetto);
   }
 
   ionViewDidLoad() {

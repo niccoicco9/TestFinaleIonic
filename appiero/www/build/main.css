@@ -25678,6 +25678,38 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-dettaglio-prestito .containerImmagine {
+  background: whitesmoke;
+  width: 90vw;
+  height: 40vh;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-dettaglio-prestito .containerImmagine ion-icon {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  color: #478aff;
+  font-size: 40px;
+}
+
+page-dettaglio-prestito .togglePrestato {
+  margin-top: 30px;
+}
+
+page-dettaglio-prestito ion-input, page-dettaglio-prestito ion-datetime {
+  font-weight: bolder;
+  color: #222;
+}
+
 .divTesto {
   display: -webkit-box;
   display: -webkit-flex;

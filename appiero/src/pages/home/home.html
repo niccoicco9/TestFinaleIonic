@@ -23,10 +23,10 @@
       </div>
       <!-- C'è anche item-sliding se c'è tempo che puoi provare a fare --> 
       <div item-end class="containerBottoni">
-        <button ion-button color="danger" *ngIf="itemOggetto.ritornato">
+        <button ion-button color="danger" *ngIf="!itemOggetto.ritornato">
           <ion-icon name="ios-remove"></ion-icon>
         </button>
-        <button ion-button color="secondary" *ngIf="!itemOggetto.ritornato">
+        <button ion-button color="secondary" *ngIf="itemOggetto.ritornato">
           <ion-icon name="ios-add"></ion-icon>
         </button>
         <ion-icon name="ios-close-circle" color="dark"></ion-icon>
