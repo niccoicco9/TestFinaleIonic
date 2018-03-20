@@ -24,4 +24,8 @@ export class HomePage {
     });
   }
 
+  cambiaStatoRestituzione(oggetto: OggettoPrestato){
+    oggetto.ritornato = !oggetto.ritornato;
+  }
+
 }

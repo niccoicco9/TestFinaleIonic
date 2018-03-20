@@ -20,6 +20,7 @@ export class ServizioOggettiPrestatiProvider {
   constructor(public http: HttpClient) {
     for (let i = 0; i < 3; i++) {
       this.oggettiPrestati.push({
+        id: i,
         nome: this.nomiOggetti[i],
         aChi: this.nomiPersone[i],
         quando: this.quandoPrestito[i],
@@ -32,4 +33,6 @@ export class ServizioOggettiPrestatiProvider {
   getOggettiPrestati(): Observable<OggettoPrestato[]> {
     return of(this.oggettiPrestati);
   }
+
+  
 }

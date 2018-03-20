@@ -25710,7 +25710,19 @@ page-dettaglio-prestito ion-input, page-dettaglio-prestito ion-datetime {
   color: #222;
 }
 
-.divTesto {
+page-home ion-navbar ion-icon {
+  font-size: 26px;
+  color: #478aff;
+}
+
+page-home .informazioniItem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+page-home .informazioniItem .divTesto {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25722,12 +25734,12 @@ page-dettaglio-prestito ion-input, page-dettaglio-prestito ion-datetime {
   flex-direction: column;
 }
 
-.divTesto .divTitolo {
+page-home .informazioniItem .divTesto .divTitolo {
   font-size: 1.4rem;
   font-weight: bolder;
 }
 
-.divTesto .divSottotitolo {
+page-home .informazioniItem .divTesto .divSottotitolo {
   font-size: 1rem;
   color: #4d4b4b;
   font-style: italic;

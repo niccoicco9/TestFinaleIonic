@@ -1,4 +1,5 @@
 export class OggettoPrestato {
+    id: number;
     nome: string;            // Che cosa è
     aChi: string;  
     quando: string;
