@@ -88,10 +88,9 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-icon name="ios-add-circle-outline"></ion-icon>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Oggetti Prestati</ion-list-header>\n    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">\n\n      <div class="informazioniItem" (click)="vaiDettaglioPrestito(itemOggetto)">\n        <ion-avatar item-start>\n          <img src="{{itemOggetto.fotografia}}">\n        </ion-avatar>\n\n        <div class="divTesto">\n          <div class="divTitolo">{{itemOggetto.nome}}</div>\n          <div class="divSottotitolo">prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando}}</div>\n        </div>\n      </div>\n      <!-- C\'è anche item-sliding se c\'è tempo che puoi provare a fare -->\n      <div item-end class="containerBottoni">\n        <button ion-button color="danger" *ngIf="!itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-remove"></ion-icon>\n        </button>\n        <button ion-button color="secondary" *ngIf="itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-add"></ion-icon>\n        </button>\n        <ion-icon name="ios-close-circle" color="dark" (click)="eliminaItem(itemOggetto)"></ion-icon>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */]])
     ], HomePage);
     return HomePage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -154,14 +153,12 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
         if (i <= this.oggettiPrestati.length) {
             this.oggettiPrestati.splice(idOggetto, 1);
         }
-        console.log(this.oggettiPrestati);
     };
     ServizioOggettiPrestatiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], ServizioOggettiPrestatiProvider);
     return ServizioOggettiPrestatiProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=servizio-oggetti-prestati.js.map
@@ -327,17 +324,29 @@ var DettaglioPrestitoPage = /** @class */ (function () {
     function DettaglioPrestitoPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.oggetto = this.navParams.get('prestito');
+        this.oggettoCondiviso = this.navParams.get('prestito');
+        this.oggettoLocale = Object.assign({}, this.oggettoCondiviso); // Mi serve per fare una copia in locale del contenuto dell'oggetto che mi arriva dalla lista
     }
     DettaglioPrestitoPage.prototype.ionViewDidLoad = function () {
     };
+    DettaglioPrestitoPage.prototype.salvaModifiche = function () {
+        this.oggettoCondiviso.id = this.oggettoLocale.id;
+        this.oggettoCondiviso.nome = this.oggettoLocale.nome;
+        this.oggettoCondiviso.quando = this.oggettoLocale.quando;
+        this.oggettoCondiviso.aChi = this.oggettoLocale.aChi;
+        this.oggettoCondiviso.fotografia = this.oggettoLocale.fotografia;
+        this.oggettoCondiviso.ritornato = this.oggettoLocale.ritornato;
+        // Torno indietro alla home
+        this.navCtrl.pop();
+    };
     DettaglioPrestitoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-dettaglio-prestito',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/dettaglio-prestito/dettaglio-prestito.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Modifica</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n      <ion-list-header>Modifica oggetto</ion-list-header>\n    <ion-item>\n      <ion-label floating>Cosa?</ion-label>\n      <ion-input type="text" [(ngModel)]="oggetto.nome"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>A chi?</ion-label>\n      <ion-input type="text" [(ngModel)]="oggetto.aChi"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Quando?</ion-label>\n      <ion-datetime displayFormat="D/M/YYYY"></ion-datetime>\n    </ion-item>\n\n    <ion-item class="togglePrestato">\n      <ion-label>Prestato</ion-label>\n      <ion-toggle checked="{{oggetto.ritornato}}"></ion-toggle>\n    </ion-item>\n  </ion-list>\n\n  <div class="containerImmagine">\n    <ion-icon name="ios-add-circle" large></ion-icon>\n  </div>\n\n  <div>\n    <button ion-button full>Salva</button>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/dettaglio-prestito/dettaglio-prestito.html"*/,
+            selector: 'page-dettaglio-prestito',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/dettaglio-prestito/dettaglio-prestito.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Modifica</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n      <ion-list-header>Modifica oggetto</ion-list-header>\n    <ion-item>\n      <ion-label floating>Cosa?</ion-label>\n      <ion-input type="text" [(ngModel)]="oggettoLocale.nome"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>A chi?</ion-label>\n      <ion-input type="text" [(ngModel)]="oggettoLocale.aChi"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Quando?</ion-label>\n      <ion-datetime displayFormat="D/M/YYYY"></ion-datetime>\n    </ion-item>\n\n    <ion-item class="togglePrestato">\n      <ion-label>Prestato</ion-label>\n      <ion-toggle [(ngModel)]="oggettoLocale.ritornato"></ion-toggle>\n    </ion-item>\n  </ion-list>\n\n  <div class="containerImmagine">\n    <ion-icon name="ios-add-circle" large></ion-icon>\n  </div>\n\n  <div>\n    <button ion-button full (click)="salvaModifiche()">Salva</button>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/dettaglio-prestito/dettaglio-prestito.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object])
     ], DettaglioPrestitoPage);
     return DettaglioPrestitoPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=dettaglio-prestito.js.map
