@@ -3,5 +3,5 @@ export class OggettoPrestato {
     aChi: string;  
     quando: string;
     fotografia: any;
-    ritornato: boolean;     // Se true è ritornato mentre se false è ancora in prestito        
+    ritornato: boolean;     // Se true è ritornato mentre se false è ancora in prestito    
 }

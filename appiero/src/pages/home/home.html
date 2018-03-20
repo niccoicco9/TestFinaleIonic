@@ -1,14 +1,23 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Home
     </ion-title>
+
+    <button>
+      <ion-icon name="ios-add-circle-outline"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-list-header>Oggetti Prestati</ion-list-header>
+    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">
+      <div>
+        <div>{{itemOggetto.nome}}</div>
+        <div>prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando}}</div>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
