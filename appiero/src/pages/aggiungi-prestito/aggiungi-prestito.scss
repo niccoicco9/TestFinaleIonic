@@ -1,25 +1,27 @@
 page-aggiungi-prestito {
-  #containerImmagine {
-    background: whitesmoke;
-    width: 90vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 4em;
+  // #containerImmagine {
+  //   background: whitesmoke;
+  //   width: 90vw;
+  //   height: 40vh;
+  //   display: flex;
+  //   justify-content: center;
 
-    ion-icon {
-      align-self: center;
-      color: #478aff;
-      font-size: 40px;
-    }
-  }
+  //   ion-icon {
+  //     align-self: center;
+  //     color: #478aff;
+  //     font-size: 40px;
+  //   }
+  // }
 
-  .togglePrestato {
-    margin-top: 30px;
-  }
+  // .togglePrestato {
+  //   margin-top: 30px;
+  // }
 
-  ion-input,
-  ion-datetime {
-    font-weight: bolder;
-    color: #222;
-  }
+  // ion-input,
+  // ion-datetime {
+  //   font-weight: bolder;
+  //   color: #222;
+  // }
 }

@@ -19,19 +19,19 @@
     "cordova-plugin-ionic-webview": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-media": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-media": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },

@@ -25679,34 +25679,8 @@ ion-navbar.toolbar {
 }
 
 page-aggiungi-prestito {
-  /*#containerImmagine {
-    background: whitesmoke;
-    width: 90vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-
-    ion-icon {
-      align-self: center;
-      color: #478aff;
-      font-size: 40px;
-    }
-  }
-
-  .togglePrestato {
-    margin-top: 30px;
-  }
-
-  ion-input,
-  ion-datetime {
-    font-weight: bolder;
-    color: #222;
-  }*/
-}
-
-page-aggiungi-prestito * {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 3rem;
+  font-size: 4em;
 }
 
 page-dettaglio-prestito .containerImmagine {
