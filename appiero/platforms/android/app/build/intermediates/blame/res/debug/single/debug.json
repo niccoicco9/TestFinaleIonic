@@ -44,6 +44,10 @@
         "source": "/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/platforms/android/app/src/main/res/drawable-port-xxhdpi/screen.png"
     },
     {
+        "merged": "/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/platforms/android/app/build/intermediates/res/merged/debug/xml_provider_paths.xml.flat",
+        "source": "/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/platforms/android/app/src/main/res/xml/provider_paths.xml"
+    },
+    {
         "merged": "/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/platforms/android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_icon.png.flat",
         "source": "/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/platforms/android/app/src/main/res/mipmap-xhdpi/icon.png"
     },

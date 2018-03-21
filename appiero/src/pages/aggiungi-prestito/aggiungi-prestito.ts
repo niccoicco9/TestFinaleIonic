@@ -1,33 +1,43 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+
 import { OggettoPrestato } from '../../models/oggettoPrestato';
 import { ServizioOggettiPrestatiProvider } from '../../providers/servizio-oggetti-prestati/servizio-oggetti-prestati';
-
-/**
- * Generated class for the AggiungiPrestitoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FotografieProvider } from '../../providers/fotografie/fotografie';
 
 @IonicPage()
 @Component({
-  selector: 'page-aggiungi-prestito',
-  templateUrl: 'aggiungi-prestito.html',
+  selector: 'page-aggiungi-prestito0',
+  templateUrl: 'aggiungi-prestito.html'
 })
 export class AggiungiPrestitoPage {
-
   oggetto: OggettoPrestato;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private servizioOggettiPrestati: ServizioOggettiPrestatiProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private servizioOggettiPrestati: ServizioOggettiPrestatiProvider,
+    private servizioFotografie: FotografieProvider
+  ) {
     this.oggetto = new OggettoPrestato();
   }
 
-  ionViewDidLoad() {
-  }
+  ionViewDidLoad() {}
 
-  salvaNuovoPrestito(){
+  salvaNuovoPrestito() {
     this.servizioOggettiPrestati.aggiungiPrestito(this.oggetto);
     this.navCtrl.pop();
   }
 
+  nuovaImmagine() {
+    
+    this.servizioFotografie.scattaFotografia().then(
+      imageData => {
+        this.oggetto.fotografia = 'data:image/jpeg;base64,'+ imageData;
+      },
+      err => {
+        this.oggetto.fotografia = '';
+        alert('Impossibile scattare fotografia');
+      }
+    );
+  }
 }
