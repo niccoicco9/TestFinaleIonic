@@ -185,7 +185,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var FotografieProvider = /** @class */ (function () {
     function FotografieProvider(camera) {
         this.camera = camera;
-        this.fotografia = '';
     }
     FotografieProvider.prototype.scattaFotografia = function () {
         var options = {
@@ -194,7 +193,7 @@ var FotografieProvider = /** @class */ (function () {
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE
         };
-        return this.camera.getPicture();
+        return this.camera.getPicture(options);
     };
     FotografieProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -241,6 +240,9 @@ var HomePage = /** @class */ (function () {
         this.storage = storage;
         this.listaOggettiPrestati = [];
     }
+    HomePage.prototype.ionViewDidLoad = function () {
+        this.aggiornaDati();
+    };
     HomePage.prototype.ionViewWillEnter = function () {
         this.aggiornaDati();
     };
@@ -267,11 +269,12 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-icon name="ios-add-circle-outline" (click)="aggiungiPrestito()"></ion-icon>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Oggetti Prestati</ion-list-header>\n    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">\n\n      <div class="informazioniItem" (click)="vaiDettaglioPrestito(itemOggetto)">\n        <ion-avatar item-start>\n          <img src="{{itemOggetto.fotografia}}">\n        </ion-avatar>\n\n        <div class="divTesto">\n          <div class="divTitolo">{{itemOggetto.nome}}</div>\n          <div class="divSottotitolo">prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando | date: \'EEEE, dd/MM/yyyy\'}}</div>\n        </div>\n      </div>\n      <!-- C\'è anche item-sliding se c\'è tempo che puoi provare a fare -->\n      <div item-end class="containerBottoni">\n        <button ion-button color="danger" *ngIf="!itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-remove"></ion-icon>\n        </button>\n        <button ion-button color="secondary" *ngIf="itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-add"></ion-icon>\n        </button>\n        <ion-icon name="ios-close-circle" color="dark" (click)="eliminaItem(itemOggetto)"></ion-icon>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/
+            selector: "page-home",template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-icon name="ios-add-circle-outline" (click)="aggiungiPrestito()"></ion-icon>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Oggetti Prestati</ion-list-header>\n    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">\n\n      <div class="informazioniItem" (click)="vaiDettaglioPrestito(itemOggetto)">\n        <ion-avatar item-start>\n          <img src="{{itemOggetto.fotografia}}">\n        </ion-avatar>\n\n        <div class="divTesto">\n          <div class="divTitolo">{{itemOggetto.nome}}</div>\n          <div class="divSottotitolo">prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando | date: \'EEEE, dd/MM/yyyy\'}}</div>\n        </div>\n      </div>\n      <!-- C\'è anche item-sliding se c\'è tempo che puoi provare a fare -->\n      <div item-end class="containerBottoni">\n        <button ion-button color="danger" *ngIf="!itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-remove"></ion-icon>\n        </button>\n        <button ion-button color="secondary" *ngIf="itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-add"></ion-icon>\n        </button>\n        <ion-icon name="ios-close-circle" color="dark" (click)="eliminaItem(itemOggetto)"></ion-icon>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__["a" /* NativeStorage */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__["a" /* NativeStorage */]])
     ], HomePage);
     return HomePage;
 }());
@@ -468,16 +471,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   nonché anche inserire nuovi oggettiPrestati / modifiche.
 */
 var ServizioOggettiPrestatiProvider = /** @class */ (function () {
+    // private nomiOggetti = ["Album", "Telefono", "Computer"];
+    // private nomiPersone = ["Marco", "Giovanni", "Paolo"];
+    // private quandoPrestito = ["2018-03-19", "2017-02-21", "2017-04-15"];
+    // private fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
+    // private statoPrestito = [true, false, false];
     function ServizioOggettiPrestatiProvider(platform, storage) {
         var _this = this;
         this.platform = platform;
         this.storage = storage;
         this.oggettiPrestati = [];
-        this.nomiOggetti = ["Album", "Telefono", "Computer"];
-        this.nomiPersone = ["Marco", "Giovanni", "Paolo"];
-        this.quandoPrestito = ["2018-03-19", "2017-02-21", "2017-04-15"];
-        this.fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
-        this.statoPrestito = [true, false, false];
         this.platform.ready().then(function () {
             // const oggettoDiProva = new OggettoPrestato();
             // oggettoDiProva.id = 1;

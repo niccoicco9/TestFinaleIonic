@@ -2,13 +2,10 @@
 import { Injectable } from '@angular/core';
 
 import { Camera, CameraOptions } from "@ionic-native/camera";
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class FotografieProvider {
 
-  private fotografia: string = '';
   constructor(private camera: Camera) {}
 
   scattaFotografia(): Promise<string>{
@@ -19,7 +16,7 @@ export class FotografieProvider {
       mediaType: this.camera.MediaType.PICTURE
     };
     
-    return this.camera.getPicture();
+    return this.camera.getPicture(options);
   }
 
 }

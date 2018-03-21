@@ -13,11 +13,11 @@ import { NativeStorage } from '@ionic-native/native-storage';
 @Injectable()
 export class ServizioOggettiPrestatiProvider {
   private oggettiPrestati: OggettoPrestato[] = [];
-  private nomiOggetti = ["Album", "Telefono", "Computer"];
-  private nomiPersone = ["Marco", "Giovanni", "Paolo"];
-  private quandoPrestito = ["2018-03-19", "2017-02-21", "2017-04-15"];
-  private fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
-  private statoPrestito = [true, false, false];
+  // private nomiOggetti = ["Album", "Telefono", "Computer"];
+  // private nomiPersone = ["Marco", "Giovanni", "Paolo"];
+  // private quandoPrestito = ["2018-03-19", "2017-02-21", "2017-04-15"];
+  // private fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
+  // private statoPrestito = [true, false, false];
 
   constructor(private platform: Platform, private storage: NativeStorage) {
     this.platform.ready().then(

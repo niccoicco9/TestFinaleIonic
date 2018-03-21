@@ -4,7 +4,6 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { OggettoPrestato } from '../../models/oggettoPrestato';
 import { ServizioOggettiPrestatiProvider } from '../../providers/servizio-oggetti-prestati/servizio-oggetti-prestati';
 import { FotografieProvider } from '../../providers/fotografie/fotografie';
-import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
