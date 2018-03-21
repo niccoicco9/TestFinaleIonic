@@ -29,10 +29,12 @@ export class AggiungiPrestitoPage {
   }
 
   nuovaImmagine() {
-    
+
     this.servizioFotografie.scattaFotografia().then(
       imageData => {
-        this.oggetto.fotografia = 'data:image/jpeg;base64,'+ imageData;
+        // imageData is either a base64 encoded string or a file URI
+        // If it's base64:
+        this.oggetto.fotografia = "data:image/jpeg;base64," + imageData;
       },
       err => {
         this.oggetto.fotografia = '';
