@@ -255,6 +255,8 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.cambiaStatoRestituzione = function (oggetto) {
         oggetto.ritornato = !oggetto.ritornato;
+        this.serviceObjectOnLoan.modificaPrestito(oggetto.id, oggetto);
+        this.aggiornaDati();
     };
     HomePage.prototype.eliminaItem = function (oggetto) {
         this.serviceObjectOnLoan.deleteOggettoPrestato(oggetto.id);

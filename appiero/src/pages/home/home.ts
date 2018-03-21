@@ -40,6 +40,8 @@ export class HomePage {
 
   cambiaStatoRestituzione(oggetto: OggettoPrestato){
     oggetto.ritornato = !oggetto.ritornato;
+    this.serviceObjectOnLoan.modificaPrestito(oggetto.id, oggetto);
+    this.aggiornaDati();
   }
 
   eliminaItem(oggetto: OggettoPrestato){
