@@ -55,6 +55,32 @@ module.exports = [
     "clobbers": [
       "CameraPopoverHandle"
     ]
+  },
+  {
+    "id": "cordova-plugin-nativestorage.mainHandle",
+    "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
+    "pluginId": "cordova-plugin-nativestorage",
+    "clobbers": [
+      "NativeStorage"
+    ]
+  },
+  {
+    "id": "cordova-plugin-nativestorage.LocalStorageHandle",
+    "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
+    "pluginId": "cordova-plugin-nativestorage"
+  },
+  {
+    "id": "cordova-plugin-nativestorage.NativeStorageError",
+    "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
+    "pluginId": "cordova-plugin-nativestorage"
+  },
+  {
+    "id": "cordova-plugin-statusbar.statusbar",
+    "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+    "pluginId": "cordova-plugin-statusbar",
+    "clobbers": [
+      "window.StatusBar"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -65,7 +91,9 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-ionic-webview": "1.1.16",
   "cordova-plugin-ionic-keyboard": "2.0.5",
-  "cordova-plugin-camera": "4.0.2"
+  "cordova-plugin-camera": "4.0.2",
+  "cordova-plugin-nativestorage": "2.3.1",
+  "cordova-plugin-statusbar": "2.4.1"
 };
 // BOTTOM OF METADATA
 });

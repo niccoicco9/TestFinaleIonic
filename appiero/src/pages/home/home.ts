@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { ServizioOggettiPrestatiProvider } from '../../providers/servizio-oggetti-prestati/servizio-oggetti-prestati';
 import { OggettoPrestato } from '../../models/oggettoPrestato';
 import { DettaglioPrestitoPage } from '../dettaglio-prestito/dettaglio-prestito';
 import { AggiungiPrestitoPage } from '../aggiungi-prestito/aggiungi-prestito';
 import { DatePipe } from '@angular/common';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @Component({
   selector: 'page-home',
@@ -12,12 +13,20 @@ import { DatePipe } from '@angular/common';
 })
 export class HomePage {
 
-  listaOggettiPrestati: OggettoPrestato[];
-  constructor(public navCtrl: NavController, private serviceObjectOnLoan: ServizioOggettiPrestatiProvider) {
+  listaOggettiPrestati: OggettoPrestato[] = [];
+  constructor(public navCtrl: NavController, 
+    private serviceObjectOnLoan: ServizioOggettiPrestatiProvider, 
+    private platform: Platform, private storage: NativeStorage) {
+    
   }
 
   ionViewDidLoad(){
-    this.serviceObjectOnLoan.getOggettiPrestati().subscribe(oggetti => this.listaOggettiPrestati = oggetti);
+    this.platform.ready().then(
+      () => this.storage.getItem('oggettiImmagazzinati').then(
+        oggetto => this.listaOggettiPrestati = oggetto
+      )
+    );
+    
   }
 
   vaiDettaglioPrestito(oggetto: OggettoPrestato){

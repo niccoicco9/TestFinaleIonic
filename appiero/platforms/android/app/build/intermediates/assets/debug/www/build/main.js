@@ -1,15 +1,16 @@
 webpackJsonp([2],{
 
-/***/ 101:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AggiungiPrestitoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_oggettoPrestato__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_fotografie_fotografie__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_fotografie_fotografie__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,6 +20,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -34,8 +36,11 @@ var AggiungiPrestitoPage = /** @class */ (function () {
     }
     AggiungiPrestitoPage.prototype.ionViewDidLoad = function () { };
     AggiungiPrestitoPage.prototype.salvaNuovoPrestito = function () {
+        var _this = this;
+        this.servizioOggettiPrestati.numeroOggettiPrestati().subscribe(function (numeroElementi) { return _this.oggetto.id = numeroElementi; });
         this.servizioOggettiPrestati.aggiungiPrestito(this.oggetto);
-        this.navCtrl.pop();
+        this.navCtrl.popAll();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
     };
     AggiungiPrestitoPage.prototype.nuovaImmagine = function () {
         var _this = this;
@@ -62,13 +67,13 @@ var AggiungiPrestitoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 102:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DettaglioPrestitoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -116,7 +121,7 @@ var DettaglioPrestitoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 114:
+/***/ 116:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -129,20 +134,20 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 114;
+webpackEmptyAsyncContext.id = 116;
 
 /***/ }),
 
-/***/ 156:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/aggiungi-prestito/aggiungi-prestito.module": [
-		281,
+		282,
 		1
 	],
 	"../pages/dettaglio-prestito/dettaglio-prestito.module": [
-		282,
+		283,
 		0
 	]
 };
@@ -157,18 +162,18 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 156;
+webpackAsyncContext.id = 158;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 159:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FotografieProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -205,67 +210,6 @@ var FotografieProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 203:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dettaglio_prestito_dettaglio_prestito__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aggiungi_prestito_aggiungi_prestito__ = __webpack_require__(101);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, serviceObjectOnLoan) {
-        this.navCtrl = navCtrl;
-        this.serviceObjectOnLoan = serviceObjectOnLoan;
-    }
-    HomePage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.serviceObjectOnLoan.getOggettiPrestati().subscribe(function (oggetti) { return _this.listaOggettiPrestati = oggetti; });
-    };
-    HomePage.prototype.vaiDettaglioPrestito = function (oggetto) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__dettaglio_prestito_dettaglio_prestito__["a" /* DettaglioPrestitoPage */], {
-            prestito: oggetto
-        });
-    };
-    HomePage.prototype.cambiaStatoRestituzione = function (oggetto) {
-        oggetto.ritornato = !oggetto.ritornato;
-    };
-    HomePage.prototype.eliminaItem = function (oggetto) {
-        alert(oggetto.id);
-        this.serviceObjectOnLoan.deleteOggettoPrestato(oggetto.id);
-    };
-    HomePage.prototype.aggiungiPrestito = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__aggiungi_prestito_aggiungi_prestito__["a" /* AggiungiPrestitoPage */], {});
-    };
-    HomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-icon name="ios-add-circle-outline" (click)="aggiungiPrestito()"></ion-icon>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Oggetti Prestati</ion-list-header>\n    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">\n\n      <div class="informazioniItem" (click)="vaiDettaglioPrestito(itemOggetto)">\n        <ion-avatar item-start>\n          <img src="{{itemOggetto.fotografia}}">\n        </ion-avatar>\n\n        <div class="divTesto">\n          <div class="divTitolo">{{itemOggetto.nome}}</div>\n          <div class="divSottotitolo">prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando | date: \'EEEE, dd/MM/yyyy\'}}</div>\n        </div>\n      </div>\n      <!-- C\'è anche item-sliding se c\'è tempo che puoi provare a fare -->\n      <div item-end class="containerBottoni">\n        <button ion-button color="danger" *ngIf="!itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-remove"></ion-icon>\n        </button>\n        <button ion-button color="secondary" *ngIf="itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-add"></ion-icon>\n        </button>\n        <ion-icon name="ios-close-circle" color="dark" (click)="eliminaItem(itemOggetto)"></ion-icon>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */]])
-    ], HomePage);
-    return HomePage;
-}());
-
-//# sourceMappingURL=home.js.map
-
-/***/ }),
-
 /***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -285,19 +229,20 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_dettaglio_prestito_dettaglio_prestito__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_aggiungi_prestito_aggiungi_prestito__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_camera__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_fotografie_fotografie__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_storage__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_dettaglio_prestito_dettaglio_prestito__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_aggiungi_prestito_aggiungi_prestito__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_fotografie_fotografie__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -317,41 +262,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_dettaglio_prestito_dettaglio_prestito__["a" /* DettaglioPrestitoPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_aggiungi_prestito_aggiungi_prestito__["a" /* AggiungiPrestitoPage */]
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_dettaglio_prestito_dettaglio_prestito__["a" /* DettaglioPrestitoPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_aggiungi_prestito_aggiungi_prestito__["a" /* AggiungiPrestitoPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/aggiungi-prestito/aggiungi-prestito.module#AggiungiPrestitoPageModule', name: 'AggiungiPrestitoPage', segment: 'aggiungi-prestito', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dettaglio-prestito/dettaglio-prestito.module#DettaglioPrestitoPageModule', name: 'DettaglioPrestitoPage', segment: 'dettaglio-prestito', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClientModule */]
+                __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["a" /* HttpClientModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_dettaglio_prestito_dettaglio_prestito__["a" /* DettaglioPrestitoPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_aggiungi_prestito_aggiungi_prestito__["a" /* AggiungiPrestitoPage */]
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_dettaglio_prestito_dettaglio_prestito__["a" /* DettaglioPrestitoPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_aggiungi_prestito_aggiungi_prestito__["a" /* AggiungiPrestitoPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_7__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */],
-                __WEBPACK_IMPORTED_MODULE_11__ionic_native_camera__["a" /* Camera */],
-                __WEBPACK_IMPORTED_MODULE_12__providers_fotografie_fotografie__["a" /* FotografieProvider */]
+                __WEBPACK_IMPORTED_MODULE_9__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */],
+                __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_13__providers_fotografie_fotografie__["a" /* FotografieProvider */],
+                __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_storage__["a" /* NativeStorage */]
             ]
         })
     ], AppModule);
@@ -377,16 +324,16 @@ var OggettoPrestato = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 280:
+/***/ 276:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -428,10 +375,11 @@ var MyApp = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServizioOggettiPrestatiProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_storage__ = __webpack_require__(79);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -444,29 +392,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /*
   Questo servizio si occuperà di andare a fornire gli oggetti prestati ai richiedenti,
   nonché anche inserire nuovi oggettiPrestati / modifiche.
 */
 var ServizioOggettiPrestatiProvider = /** @class */ (function () {
-    function ServizioOggettiPrestatiProvider(http) {
-        this.http = http;
+    function ServizioOggettiPrestatiProvider(platform, storage) {
+        var _this = this;
+        this.platform = platform;
+        this.storage = storage;
         this.oggettiPrestati = [];
         this.nomiOggetti = ["Album", "Telefono", "Computer"];
         this.nomiPersone = ["Marco", "Giovanni", "Paolo"];
         this.quandoPrestito = ["2018-03-19", "2017-02-21", "2017-04-15"];
         this.fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
         this.statoPrestito = [true, false, false];
-        for (var i = 0; i < 3; i++) {
-            this.oggettiPrestati.push({
-                id: i,
-                nome: this.nomiOggetti[i],
-                aChi: this.nomiPersone[i],
-                quando: this.quandoPrestito[i],
-                fotografia: this.fotografie[i],
-                ritornato: this.statoPrestito[i]
+        this.platform.ready().then(function () {
+            // const oggettoDiProva = new OggettoPrestato();
+            // oggettoDiProva.id = 1;
+            // oggettoDiProva.nome = 'fsdasfgd';
+            // oggettoDiProva.ritornato = false;
+            _this.storage.getItem('oggettiImmagazzinati').then(function (data) {
+                console.log('dati');
+                console.log(data);
             });
-        }
+            if (!localStorage.getItem('oggettiImmagazzinati')) {
+                _this.storage.setItem('oggettiImmagazzinati', []);
+            }
+            else {
+                _this.storage.getItem('oggettiImmagazzinati').then(function (oggetti) { return _this.oggettiPrestati = oggetti; }, function (error) { return console.log(error); });
+            }
+        });
     }
     ServizioOggettiPrestatiProvider.prototype.getOggettiPrestati = function () {
         return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["of"])(this.oggettiPrestati);
@@ -479,9 +436,11 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
         if (i <= this.oggettiPrestati.length) {
             this.oggettiPrestati.splice(i, 1);
         }
+        this.aggiornaStorage('Eliminazione effettuata', 'Impossibile eliminare');
     };
     ServizioOggettiPrestatiProvider.prototype.aggiungiPrestito = function (oggetto) {
         this.oggettiPrestati.push(oggetto);
+        this.aggiornaStorage('Inserimento avvenuto', 'Inserimento fallito');
     };
     ServizioOggettiPrestatiProvider.prototype.modificaPrestito = function (idOggetto, modificheOggetto) {
         var i = 0;
@@ -494,15 +453,102 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
         this.oggettiPrestati[i].aChi = modificheOggetto.aChi;
         this.oggettiPrestati[i].fotografia = modificheOggetto.fotografia;
         this.oggettiPrestati[i].ritornato = modificheOggetto.ritornato;
+        this.aggiornaStorage('Modifica effettuata', 'Modifica fallita');
+    };
+    ServizioOggettiPrestatiProvider.prototype.aggiornaStorage = function (alertOk, alertFailed) {
+        var _this = this;
+        this.storage.remove('oggettiImmagazzinati').then(function () { return _this.storage.setItem('oggettiImmagazzinati', _this.oggettiPrestati).then(function () { return alert(alertOk); }, function () { return alert(alertFailed); }); });
+    };
+    ServizioOggettiPrestatiProvider.prototype.numeroOggettiPrestati = function () {
+        return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["of"])(this.oggettiPrestati.length);
     };
     ServizioOggettiPrestatiProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_storage__["a" /* NativeStorage */]])
     ], ServizioOggettiPrestatiProvider);
     return ServizioOggettiPrestatiProvider;
 }());
 
 //# sourceMappingURL=servizio-oggetti-prestati.js.map
+
+/***/ }),
+
+/***/ 81:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dettaglio_prestito_dettaglio_prestito__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aggiungi_prestito_aggiungi_prestito__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__ = __webpack_require__(79);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(navCtrl, serviceObjectOnLoan, platform, storage) {
+        this.navCtrl = navCtrl;
+        this.serviceObjectOnLoan = serviceObjectOnLoan;
+        this.platform = platform;
+        this.storage = storage;
+        this.listaOggettiPrestati = [];
+    }
+    HomePage.prototype.ionViewDidLoad = function () {
+        // this.serviceObjectOnLoan.getOggettiPrestati().subscribe(oggetti => {
+        //    this.listaOggettiPrestati = oggetti;
+        //    console.log(this.listaOggettiPrestati);
+        // });
+        var _this = this;
+        this.platform.ready().then(function () {
+            //alert('ffdfdfdf');
+            //this.storage.getItem('oggettiImmagazzinati').then(data => this.listaOggettiPrestati = data);
+            _this.serviceObjectOnLoan.getOggettiPrestati().subscribe(function (oggetti) {
+                _this.listaOggettiPrestati = oggetti;
+                console.log(_this.listaOggettiPrestati);
+            });
+        });
+    };
+    HomePage.prototype.vaiDettaglioPrestito = function (oggetto) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__dettaglio_prestito_dettaglio_prestito__["a" /* DettaglioPrestitoPage */], {
+            prestito: oggetto
+        });
+    };
+    HomePage.prototype.cambiaStatoRestituzione = function (oggetto) {
+        oggetto.ritornato = !oggetto.ritornato;
+    };
+    HomePage.prototype.eliminaItem = function (oggetto) {
+        alert(oggetto.id);
+        this.serviceObjectOnLoan.deleteOggettoPrestato(oggetto.id);
+    };
+    HomePage.prototype.aggiungiPrestito = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__aggiungi_prestito_aggiungi_prestito__["a" /* AggiungiPrestitoPage */], {});
+    };
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-icon name="ios-add-circle-outline" (click)="aggiungiPrestito()"></ion-icon>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Oggetti Prestati</ion-list-header>\n    <ion-item *ngFor="let itemOggetto of listaOggettiPrestati">\n\n      <div class="informazioniItem" (click)="vaiDettaglioPrestito(itemOggetto)">\n        <ion-avatar item-start>\n          <img src="{{itemOggetto.fotografia}}">\n        </ion-avatar>\n\n        <div class="divTesto">\n          <div class="divTitolo">{{itemOggetto.nome}}</div>\n          <div class="divSottotitolo">prestato a {{itemOggetto.aChi}}, in data {{itemOggetto.quando | date: \'EEEE, dd/MM/yyyy\'}}</div>\n        </div>\n      </div>\n      <!-- C\'è anche item-sliding se c\'è tempo che puoi provare a fare -->\n      <div item-end class="containerBottoni">\n        <button ion-button color="danger" *ngIf="!itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-remove"></ion-icon>\n        </button>\n        <button ion-button color="secondary" *ngIf="itemOggetto.ritornato" (click)="cambiaStatoRestituzione(itemOggetto)">\n          <ion-icon name="ios-add"></ion-icon>\n        </button>\n        <ion-icon name="ios-close-circle" color="dark" (click)="eliminaItem(itemOggetto)"></ion-icon>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/home/home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_servizio_oggetti_prestati_servizio_oggetti_prestati__["a" /* ServizioOggettiPrestatiProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__["a" /* NativeStorage */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
 
 /***/ })
 

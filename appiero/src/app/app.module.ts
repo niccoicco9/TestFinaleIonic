@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, Platform } from 'ionic-angular';
+
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Camera } from '@ionic-native/camera';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -10,7 +13,6 @@ import { ServizioOggettiPrestatiProvider } from '../providers/servizio-oggetti-p
 import { HttpClientModule } from '@angular/common/http';
 import { DettaglioPrestitoPage } from '../pages/dettaglio-prestito/dettaglio-prestito';
 import { AggiungiPrestitoPage } from '../pages/aggiungi-prestito/aggiungi-prestito';
-import { Camera } from '@ionic-native/camera';
 import { FotografieProvider } from '../providers/fotografie/fotografie';
 
 @NgModule({
@@ -38,7 +40,9 @@ import { FotografieProvider } from '../providers/fotografie/fotografie';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServizioOggettiPrestatiProvider,
     Camera,
-    FotografieProvider
+    FotografieProvider,
+    NativeStorage
+
   ]
 })
 export class AppModule {}
