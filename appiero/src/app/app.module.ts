@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DettaglioPrestitoPage } from '../pages/dettaglio-prestito/dettaglio-prestito';
 import { AggiungiPrestitoPage } from '../pages/aggiungi-prestito/aggiungi-prestito';
 import { Camera } from '@ionic-native/camera';
+import { FotografieProvider } from '../providers/fotografie/fotografie';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { Camera } from '@ionic-native/camera';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServizioOggettiPrestatiProvider,
-    Camera
+    Camera,
+    FotografieProvider
   ]
 })
 export class AppModule {}
