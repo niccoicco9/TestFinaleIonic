@@ -27,13 +27,13 @@ export class ServizioOggettiPrestatiProvider {
         // oggettoDiProva.nome = 'fsdasfgd';
         // oggettoDiProva.ritornato = false;
         
-        if(!localStorage.getItem('oggettiImmagazzinati')) {
-          this.storage.setItem('oggettiImmagazzinati', []);
-        } else{
-          this.storage.getItem('oggettiImmagazzinati').then(
-            oggetti => this.oggettiPrestati = oggetti,
-            error => console.log(error));
-        }
+        // if(!localStorage.getItem('oggettiImmagazzinati')) {
+        //   this.storage.setItem('oggettiImmagazzinati', []);
+        // } else{
+        //   this.storage.getItem('oggettiImmagazzinati').then(
+        //     oggetti => this.oggettiPrestati = oggetti,
+        //     error => console.log(error));
+        // }
       }
     );
   }
@@ -76,12 +76,10 @@ export class ServizioOggettiPrestatiProvider {
 
 
   private aggiornaStorage(alertOk, alertFailed) {
-    this.storage.remove('oggettiImmagazzinati').then(
-      () => this.storage.setItem('oggettiImmagazzinati', this.oggettiPrestati).then(
+    this.storage.setItem('oggettiImmagazzinati', this.oggettiPrestati).then(
         () => alert(alertOk),
         () => alert(alertFailed)
       )
-    );
   }
 
   numeroOggettiPrestati():Observable<number> {

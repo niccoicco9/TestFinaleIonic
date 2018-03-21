@@ -30,8 +30,8 @@ export class HomePage {
   aggiornaDati() {
     this.platform.ready().then(
       () => this.storage.getItem('oggettiImmagazzinati').then(
-        oggetto => this.listaOggettiPrestati = oggetto
-       )
+        oggetto => this.listaOggettiPrestati = oggetto)
+        
     );
   }
 

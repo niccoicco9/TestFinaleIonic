@@ -477,7 +477,6 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
     // private fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
     // private statoPrestito = [true, false, false];
     function ServizioOggettiPrestatiProvider(platform, storage) {
-        var _this = this;
         this.platform = platform;
         this.storage = storage;
         this.oggettiPrestati = [];
@@ -486,12 +485,13 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
             // oggettoDiProva.id = 1;
             // oggettoDiProva.nome = 'fsdasfgd';
             // oggettoDiProva.ritornato = false;
-            if (!localStorage.getItem('oggettiImmagazzinati')) {
-                _this.storage.setItem('oggettiImmagazzinati', []);
-            }
-            else {
-                _this.storage.getItem('oggettiImmagazzinati').then(function (oggetti) { return _this.oggettiPrestati = oggetti; }, function (error) { return console.log(error); });
-            }
+            // if(!localStorage.getItem('oggettiImmagazzinati')) {
+            //   this.storage.setItem('oggettiImmagazzinati', []);
+            // } else{
+            //   this.storage.getItem('oggettiImmagazzinati').then(
+            //     oggetti => this.oggettiPrestati = oggetti,
+            //     error => console.log(error));
+            // }
         });
     }
     ServizioOggettiPrestatiProvider.prototype.deleteOggettoPrestato = function (idOggetto) {

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Mar 21 16:39:43 CET 2018
+#Wed Mar 21 16:43:51 CET 2018
 60.set=ASSET
 52.set=ASSET
 53.base=/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/platforms/android/app/build/intermediates/assets/debug
