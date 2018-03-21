@@ -50,7 +50,7 @@ var AggiungiPrestitoPage = /** @class */ (function () {
     };
     AggiungiPrestitoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-aggiungi-prestito0',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/aggiungi-prestito/aggiungi-prestito.html"*/'\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Aggiungi</ion-title>\n      </ion-navbar>\n    \n    </ion-header>\n    \n    \n    <ion-content padding>\n      <ion-list>\n          <ion-list-header>Aggiungi oggetto</ion-list-header>\n        <ion-item>\n          <ion-label floating>Cosa?</ion-label>\n          <ion-input type="text" [(ngModel)]="oggetto.nome"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>A chi?</ion-label>\n          <ion-input type="text" [(ngModel)]="oggetto.aChi"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>Quando?</ion-label>\n          <ion-datetime displayFormat="D/M/YYYY" [(ngModel)]="oggetto.quando"></ion-datetime>\n        </ion-item>\n    \n        <ion-item class="togglePrestato">\n          <ion-label>Prestato</ion-label>\n          <ion-toggle [(ngModel)]="oggetto.ritornato"></ion-toggle>\n        </ion-item>\n      </ion-list>\n    \n      <div id="containerImmagine">\n        <ion-icon name="ios-add-circle" large (click)="nuovaImmagine()" *ngIf="!oggetto.fotografia"></ion-icon>\n        <img [src]="oggetto.fotografia" *ngIf="oggetto.fotografia">\n      </div>\n    \n      <div>\n        <button ion-button full (click)="salvaNuovoPrestito()">Salva</button>\n      </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/aggiungi-prestito/aggiungi-prestito.html"*/
+            selector: 'page-aggiungi-prestito0',template:/*ion-inline-start:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/aggiungi-prestito/aggiungi-prestito.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Aggiungi</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-list-header>Aggiungi oggetto</ion-list-header>\n    <ion-item>\n      <ion-label floating>Cosa?</ion-label>\n      <ion-input type="text" [(ngModel)]="oggetto.nome"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>A chi?</ion-label>\n      <ion-input type="text" [(ngModel)]="oggetto.aChi"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Quando?</ion-label>\n      <ion-datetime displayFormat="D/M/YYYY" [(ngModel)]="oggetto.quando"></ion-datetime>\n    </ion-item>\n\n    <ion-item class="togglePrestato">\n      <ion-label>Prestato</ion-label>\n      <ion-toggle [(ngModel)]="oggetto.ritornato"></ion-toggle>\n    </ion-item>\n  </ion-list>\n\n    <div id="containerImmagine">\n      <ion-icon name="ios-add-circle" large (click)="nuovaImmagine()" *ngIf="!oggetto.fotografia"></ion-icon>\n      <img [src]="oggetto.fotografia" *ngIf="oggetto.fotografia">\n    </div>\n\n\n  <div>\n    <button ion-button full (click)="salvaNuovoPrestito()">Salva</button>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/useracd10/Desktop/Academy/Settimana 6/Day 2/TestFinaleIonic/appiero/src/pages/aggiungi-prestito/aggiungi-prestito.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
@@ -477,6 +477,7 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
     // private fotografie = ["../../assets/imgs/album.png", "../../assets/imgs/telefono.jpeg", "../../assets/imgs/computer.jpg"];
     // private statoPrestito = [true, false, false];
     function ServizioOggettiPrestatiProvider(platform, storage) {
+        var _this = this;
         this.platform = platform;
         this.storage = storage;
         this.oggettiPrestati = [];
@@ -492,6 +493,7 @@ var ServizioOggettiPrestatiProvider = /** @class */ (function () {
             //     oggetti => this.oggettiPrestati = oggetti,
             //     error => console.log(error));
             // }
+            _this.storage.getItem('oggettiImmagazzinati').then(function (oggetti) { return _this.oggettiPrestati = oggetti; }, function () { return _this.oggettiPrestati = []; });
         });
     }
     ServizioOggettiPrestatiProvider.prototype.deleteOggettoPrestato = function (idOggetto) {

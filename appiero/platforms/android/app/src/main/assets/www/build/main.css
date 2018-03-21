@@ -25678,11 +25678,10 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-page-aggiungi-prestito .containerImmagine {
+page-aggiungi-prestito #containerImmagine {
   background: whitesmoke;
   width: 90vw;
   height: 40vh;
-  margin: 20px auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25693,7 +25692,7 @@ page-aggiungi-prestito .containerImmagine {
   justify-content: center;
 }
 
-page-aggiungi-prestito .containerImmagine ion-icon {
+page-aggiungi-prestito #containerImmagine ion-icon {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
