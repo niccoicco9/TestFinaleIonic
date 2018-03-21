@@ -4,10 +4,10 @@
     <ion-navbar>
         <ion-title>Aggiungi</ion-title>
       </ion-navbar>
-    
+
     </ion-header>
-    
-    
+
+
     <ion-content padding>
       <ion-list>
           <ion-list-header>Aggiungi oggetto</ion-list-header>
@@ -21,19 +21,20 @@
         </ion-item>
         <ion-item>
           <ion-label floating>Quando?</ion-label>
-          <ion-datetime displayFormat="D/M/YYYY"></ion-datetime>
+          <ion-datetime displayFormat="D/M/YYYY" [(ngModel)]="oggetto.quando"></ion-datetime>
         </ion-item>
-    
+
         <ion-item class="togglePrestato">
           <ion-label>Prestato</ion-label>
           <ion-toggle [(ngModel)]="oggetto.ritornato"></ion-toggle>
         </ion-item>
       </ion-list>
-    
-      <div class="containerImmagine">
-        <ion-icon name="ios-add-circle" large (click)="nuovaImmagine()"></ion-icon>
+
+      <div class="containerImmagine" (click)="nuovaImmagine()">
+        <ion-icon name="ios-add-circle" large *ngIf="!oggetto.fotografia"></ion-icon>
+        <img [src]="oggetto.fotografia" *ngIf="oggetto.fotografia">
       </div>
-    
+
       <div>
         <button ion-button full (click)="salvaNuovoPrestito()">Salva</button>
       </div>

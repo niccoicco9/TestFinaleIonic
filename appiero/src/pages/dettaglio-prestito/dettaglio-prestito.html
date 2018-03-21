@@ -29,9 +29,9 @@
     </ion-item>
   </ion-list>
 
-  <div class="containerImmagine">
-    <img src="{{oggettoLocale.fotografia}}">
-  </div>
+  <div class="containerImmagine" (click)="nuovaImmagine()">
+    <img src="{{oggettoLocale.fotografia}}" *ngIf="oggettoLocale.fotografia">
+  </div>""
 
   <div>
     <button ion-button full (click)="salvaModifiche()">Salva</button>
