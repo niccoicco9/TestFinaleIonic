@@ -25743,6 +25743,22 @@ page-dettaglio-prestito ion-input, page-dettaglio-prestito ion-datetime {
   color: #222;
 }
 
+page-home ion-navbar div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+page-home ion-navbar ion-title {
+  text-align: center;
+}
+
 page-home ion-navbar ion-icon {
   font-size: 26px;
   color: #478aff;
