@@ -38,9 +38,7 @@ export class ServizioOggettiPrestatiProvider {
     );
   }
 
-  getOggettiPrestati(): Observable<OggettoPrestato[]> {
-    return of(this.oggettiPrestati);
-  }
+
 
   deleteOggettoPrestato(idOggetto: number) {
     let i = 0;
@@ -54,11 +52,13 @@ export class ServizioOggettiPrestatiProvider {
   }
 
 
+
   aggiungiPrestito(oggetto: OggettoPrestato){
     this.oggettiPrestati.push(oggetto);
     this.aggiornaStorage('Inserimento avvenuto', 'Inserimento fallito');
   }
 
+  
   modificaPrestito(idOggetto: number, modificheOggetto: OggettoPrestato){
     let i = 0;
     while((this.oggettiPrestati[i].id !== idOggetto) && (i < this.oggettiPrestati.length)){

@@ -21,7 +21,7 @@
         </ion-item>
         <ion-item>
           <ion-label floating>Quando?</ion-label>
-          <ion-datetime displayFormat="D/M/YYYY"></ion-datetime>
+          <ion-datetime displayFormat="D/M/YYYY" [(ngModel)]="oggetto.quando"></ion-datetime>
         </ion-item>
     
         <ion-item class="togglePrestato">
@@ -30,7 +30,7 @@
         </ion-item>
       </ion-list>
     
-      <div class="containerImmagine">
+      <div id="containerImmagine">
         <ion-icon name="ios-add-circle" large (click)="nuovaImmagine()" *ngIf="!oggetto.fotografia"></ion-icon>
         <img [src]="oggetto.fotografia" *ngIf="oggetto.fotografia">
       </div>
