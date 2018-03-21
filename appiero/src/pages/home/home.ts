@@ -20,13 +20,16 @@ export class HomePage {
     
   }
 
-  ionViewDidLoad(){
+  ionViewWillEnter() {
+    this.aggiornaDati();
+  }
+
+  aggiornaDati(){
     this.platform.ready().then(
       () => this.storage.getItem('oggettiImmagazzinati').then(
         oggetto => this.listaOggettiPrestati = oggetto
       )
     );
-    
   }
 
   vaiDettaglioPrestito(oggetto: OggettoPrestato){
@@ -40,8 +43,8 @@ export class HomePage {
   }
 
   eliminaItem(oggetto: OggettoPrestato){
-    alert(oggetto.id);
     this.serviceObjectOnLoan.deleteOggettoPrestato(oggetto.id);
+    this.aggiornaDati();
   }
 
   aggiungiPrestito() {

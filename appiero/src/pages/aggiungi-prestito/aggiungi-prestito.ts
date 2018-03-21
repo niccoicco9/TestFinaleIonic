@@ -27,8 +27,7 @@ export class AggiungiPrestitoPage {
   salvaNuovoPrestito() {
     this.servizioOggettiPrestati.numeroOggettiPrestati().subscribe(numeroElementi => this.oggetto.id= numeroElementi);
     this.servizioOggettiPrestati.aggiungiPrestito(this.oggetto);
-    //this.navCtrl.popAll();
-    this.navCtrl.push(HomePage);
+    this.navCtrl.pop();
   }
 
   nuovaImmagine() {
