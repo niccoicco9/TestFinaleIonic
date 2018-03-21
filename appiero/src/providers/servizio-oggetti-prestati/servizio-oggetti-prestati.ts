@@ -45,17 +45,17 @@ export class ServizioOggettiPrestatiProvider {
   }
 
 
-  modificaPrestito(idOggetto: number, modificheOggetto: OggettoPrestato){
+  modificaPrestito(nuovoOggetto){
     let i = 0;
-    while((this.oggettiPrestati[i].id !== idOggetto) && (i < this.oggettiPrestati.length)){
+    while((this.oggettiPrestati[i].id !== nuovoOggetto.id) && (i < this.oggettiPrestati.length)){
       i++;
     }
-    this.oggettiPrestati[i].id = modificheOggetto.id;
-    this.oggettiPrestati[i].nome = modificheOggetto.nome;
-    this.oggettiPrestati[i].quando = modificheOggetto.quando;
-    this.oggettiPrestati[i].aChi = modificheOggetto.aChi;
-    this.oggettiPrestati[i].fotografia = modificheOggetto.fotografia;
-    this.oggettiPrestati[i].ritornato = modificheOggetto.ritornato;
+    this.oggettiPrestati[i].id = nuovoOggetto.id;
+    this.oggettiPrestati[i].nome = nuovoOggetto.nome;
+    this.oggettiPrestati[i].quando = nuovoOggetto.quando;
+    this.oggettiPrestati[i].aChi = nuovoOggetto.aChi;
+    this.oggettiPrestati[i].fotografia = nuovoOggetto.fotografia;
+    this.oggettiPrestati[i].ritornato = nuovoOggetto.ritornato;
 
     this.aggiornaStorage('Modifica effettuata', 'Modifica fallita');
   }

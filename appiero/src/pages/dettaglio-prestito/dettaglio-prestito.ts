@@ -26,8 +26,8 @@ export class DettaglioPrestitoPage {
               public navParams: NavParams,
               private servizioOggettiPrestati : ServizioOggettiPrestatiProvider,
               private camera: Camera) {
-    this.oggettoCondiviso = this.navParams.get('prestito');
-    this.oggettoLocale = Object.assign({}, this.oggettoCondiviso);  // Mi serve per fare una copia in locale del contenuto dell'oggetto che mi arriva dalla lista
+    this.oggettoLocale = this.navParams.get('prestito');
+    //this.oggettoLocale = Object.assign({}, this.oggettoCondiviso);  // Mi serve per fare una copia in locale del contenuto dell'oggetto che mi arriva dalla lista
 
   }
 
@@ -36,7 +36,7 @@ export class DettaglioPrestitoPage {
 
   salvaModifiche(){
     // alert('fdsfsdfs');
-    this.servizioOggettiPrestati.modificaPrestito(this.oggettoLocale.id, this.oggettoLocale);
+    this.servizioOggettiPrestati.modificaPrestito(this.oggettoLocale);
     // Torno indietro alla home
     this.navCtrl.pop();
   }
